@@ -27,6 +27,8 @@ public class User {
 	@NotBlank(message="Password cannot be null")
 	private String password;
 	
+	private UserType type;
+	
 	private LocalDateTime created;
 		
 	private LocalDateTime updated;
@@ -34,8 +36,14 @@ public class User {
 	public User(String userName,String password) {
 		this.userName=userName;
 		this.password=password;
+		this.type = UserType.KID;
 		this.created = LocalDateTime.now();
 		this.updated = this.created;
+	}
+	
+	public User(String userName, String password,UserType type) {
+		this(userName,password);
+		this.type=type;
 	}
 	
 }

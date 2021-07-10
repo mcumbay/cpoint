@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,6 +20,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@DisplayName("Component Test - UserController : Create User")
+@Tag("ComponentTest")
 class UserControllerComponentTest {
 	@Autowired
 	private MockMvc mockMvc;
@@ -29,6 +33,7 @@ class UserControllerComponentTest {
 	private UserRepository userRepository;
 	
 	@Test
+	@DisplayName("User Creation should work through all layers.")
 	void userCreationWorksThroughAllLayers() throws Exception{
 		//Arrange
 		UserDto user = new UserDto("test01", "mypassword");
