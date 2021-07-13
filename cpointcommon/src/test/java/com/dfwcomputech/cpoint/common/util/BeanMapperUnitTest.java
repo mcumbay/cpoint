@@ -10,7 +10,6 @@ import org.modelmapper.ModelMapper;
 
 class BeanMapperUnitTest {
 	
-	private BeanMapper<MockDtoBean, MockEntityBean> beanMapper;
 	private ModelMapper mapper;
 	
 	private MockDtoBean getMockDtoBean() {
@@ -22,8 +21,7 @@ class BeanMapperUnitTest {
 	}
 	
 	@BeforeEach
-	private void init() {
-		beanMapper = new BeanMapper<>(MockDtoBean.class,MockEntityBean.class);
+	private void init() {		
 		mapper = new ModelMapper();
 	}
 	
@@ -31,9 +29,8 @@ class BeanMapperUnitTest {
 	void shouldMapDtoToEntity() {
 		//Arrange
 		MockDtoBean myDtoBean = getMockDtoBean();		
-		//Action
-		MockEntityBean  myEntityBean =beanMapper.toEntity(myDtoBean);
-		//MockEntityBean  myEntityBean =  mapper.map(myDtoBean, MockEntityBean.class);
+		//Action		
+		MockEntityBean  myEntityBean =  mapper.map(myDtoBean, MockEntityBean.class);
 		//Assert
 		assertEquals(myDtoBean.getStrAttribute(), myEntityBean.getStrAttribute());
 		assertEquals(myDtoBean.getIntAttribute(), myEntityBean.getIntAttribute());

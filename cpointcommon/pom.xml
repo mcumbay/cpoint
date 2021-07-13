@@ -12,17 +12,23 @@
 	<artifactId>cpointcommon</artifactId>
 	<name>cpointcommon</name>
 	<description>Chores Points Tracker - Common</description>
+    <properties>        
+        <commons-io.version>2.10.0</commons-io.version>
+    </properties>	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
-		    <groupId>org.modelmapper</groupId>
-		    <artifactId>modelmapper</artifactId>
-		    <version>${modelmapper.version}</version>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>    
 		</dependency>
+        <dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>				
 	</dependencies>
 
 	<build>

@@ -26,7 +26,7 @@ class UserControllerUnitTest {
 	}
 
 	@Test
-	@DisplayName("Should Map not Admin UserDto to User")
+	@DisplayName("Should Map Non-Admin UserDto to User")
 	void shouldMapNotAdminUserDtoToUser() {
 		//Arrange
 		UserDto userDto = getMockUserDto(false);

@@ -14,7 +14,7 @@ import com.dfwcomputech.cpoint.integration.model.User;
 import com.dfwcomputech.cpoint.integration.repository.UserRepository;
 import com.dfwcomputech.cpoint.service.IUserService;
 
-@DisplayName("Unit Test - User Service")
+@DisplayName("Unit Test: User Service")
 @Tag("UnitTest")
 class UserServiceUnitTest {
 	
