@@ -4,7 +4,10 @@ import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.dfwcomputech.cpoint.service.resource.dto.UserDto;
@@ -18,17 +21,19 @@ public class UsersHttpClient {
 
     @LocalServerPort
     private int port;
+    
     private final RestTemplate restTemplate = new RestTemplate();
 
     private String usersEndpoint() {
         return SERVER_URL + ":" + port + USERS_ENDPOINT;
     }
 
-    public int put(final UserDto user) {
-        return restTemplate.postForEntity(usersEndpoint(), user, Void.class).getStatusCodeValue();
+    public HttpStatus put(final UserDto user) throws RestClientException{
+    	 ResponseEntity<UserDto> response = restTemplate.postForEntity(usersEndpoint(), user, UserDto.class);    	 
+        return response.getStatusCode();
     }
 
-    public UserDto get(String userName) {
+    public UserDto get(String userName) throws RestClientException{
         return restTemplate.getForEntity(usersEndpoint(), UserDto.class).getBody();
     }
 

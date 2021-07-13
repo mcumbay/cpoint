@@ -31,7 +31,7 @@ public class UserService implements IUserService{
 		validateUser(user);
 		//Verify userName doesnt exist
 		if(findUser(user.getUserName())!=null)
-			throw new CPointException("User "+user.getUserName()+" already exists.");
+			throw new CPointException("User Name already exists.");
 		
 		return userRepository.save(user);
 	}
