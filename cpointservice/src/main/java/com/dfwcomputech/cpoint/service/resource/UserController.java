@@ -3,7 +3,6 @@ package com.dfwcomputech.cpoint.service.resource;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,16 +18,16 @@ import com.dfwcomputech.cpoint.service.resource.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(CPointEndPoints.USERS)
 @Slf4j
 public class UserController {
 	
 	private IUserService userService;	
-	private ModelMapper modelMapper;
+	private ModelMapper mapper;
 	   
 	@Autowired
 	public void setModelMapper(ModelMapper modelMapper) {
-		this.modelMapper=modelMapper;
+		this.mapper=modelMapper;
 	}
 	
 	@Autowired
@@ -40,26 +39,13 @@ public class UserController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public UserDto post(@RequestBody UserDto userDto){
 		try {
-			User userEntity = userService.createUser(toEntity(userDto));
-			return toDto(userEntity);	
+			User userEntity = userService.createUser(mapper.map(userDto,User.class));
+			return mapper.map(userEntity,UserDto.class);	
 		} catch (CPointException e) {
 			log.debug("Validation Error: {}",e.getMessage());			
 	        throw new ResponseStatusException(
 	                 HttpStatus.PRECONDITION_FAILED, e.getMessage(), e);
 		}
 		
-	}
-	
-	@GetMapping
-	public String get() {
-		return "Hello There";
-	}
-	
-	public UserDto toDto(User user) {
-	    return modelMapper.map(user, UserDto.class);	    	   
-	}
-	
-	public User toEntity(UserDto userDto){
-	    return modelMapper.map(userDto, User.class);	    	 	  	    
 	}
 }

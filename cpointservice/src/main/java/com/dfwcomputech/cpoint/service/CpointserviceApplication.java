@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
+import com.dfwcomputech.cpoint.common.util.BeanValidator;
 import com.dfwcomputech.cpoint.integration.CpointintegrationApplication;
 
 @SpringBootApplication
@@ -19,6 +20,11 @@ public class CpointserviceApplication {
 	@Bean
 	public ModelMapper modelMapper() {
 	    return new ModelMapper();
+	}
+	
+	@Bean
+	public BeanValidator beanValidatior() {
+		return new BeanValidator();
 	}
 
 }

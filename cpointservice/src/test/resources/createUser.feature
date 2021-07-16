@@ -1,3 +1,4 @@
+#Autor: mcumbay
 Feature: User Creation
   As a parent
   I want to register my kid
@@ -8,7 +9,7 @@ Feature: User Creation
     When I create a new user with User Name "test02" and password "password"
     Then I should be able to find the user with User Name "test02" on the application
 
-  #Validations are:
+  #Validations:
   # 1.User Name is mandatory.
   # 2.Pasword is mandatory.
   # 3.User Name should be unique.
