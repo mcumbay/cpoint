@@ -59,6 +59,4 @@ public class CreateUserStepDefinitions {
 	    assertThat(status).isEqualTo(HttpStatus.PRECONDITION_FAILED);
 	    assertTrue(error.contains(expectedMessage));
 	}
-
-
 }

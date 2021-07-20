@@ -11,7 +11,7 @@
 	<groupId>com.dfwcomputech.cpoint.integration</groupId>
 	<artifactId>cpointintegration</artifactId>
 	<name>cpointintegration</name>
-	<description>WOW ALT COMPANION - Integration</description>
+	<description>Chore Points Tracker - Integration</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
