@@ -75,9 +75,9 @@
 			</plugin>
 		</plugins>
 	</build>
-	<modules>
-		<module>../cpointservice</module>
+	<modules>		
 		<module>../cpointcommon</module>
 		<module>../cpointintegration</module>
+		<module>../cpointservice</module>
 	</modules>
 </project>

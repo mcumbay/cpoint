@@ -11,10 +11,7 @@
 	<groupId>com.dfwcomputech.cpoint.integration</groupId>
 	<artifactId>cpointintegration</artifactId>
 	<name>cpointintegration</name>
-	<description>Chore Points Tracker - Integration</description>
-	<properties>
-		<java.version>16</java.version>
-	</properties>
+	<description>Chore Points Tracker - Integration</description>	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,12 +35,15 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <classifier>exec</classifier>
+            </configuration>
+        </plugin>
+    </plugins>
 	</build>
 
 </project>
