@@ -5,7 +5,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -15,7 +14,6 @@ import com.dfwcomputech.cpoint.integration.repository.UserRepository;
 import com.dfwcomputech.cpoint.service.IUserService;
 
 @DisplayName("Unit Test: User Service")
-@Tag("UnitTest")
 class UserServiceUnitTest {
 	
 	User existingUser;

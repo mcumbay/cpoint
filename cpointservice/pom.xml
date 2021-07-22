@@ -60,7 +60,7 @@
 	            <configuration>
 	                <classifier>exec</classifier>
 	            </configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
 
