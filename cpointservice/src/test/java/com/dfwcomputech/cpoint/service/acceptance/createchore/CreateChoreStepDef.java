@@ -1,4 +1,4 @@
-package com.dfwcomputech.cpoint.service.acceptance.createuser;
+package com.dfwcomputech.cpoint.service.acceptance.createchore;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +16,7 @@ import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CreateChoreStepDefinitions {
+public class CreateChoreStepDef {
 	@Autowired
 	private ChoreRepository choreRepository;
 	

@@ -1,13 +1,12 @@
-#Autor: mcumbay
-Feature: Chore Creation
+Feature: Chore creation
   As a Parent User
   I want to define a Chore
-  so that I can assign it to a Kid User
+  so that I can find it in the application
 
   #Happy day Scenario
   Scenario: A new chore can be created
-    When I create a new chore with name "chore01", description "My first chore" and points 10
-    Then I should be able to find the chore with name "chore01" on the application
+    When I create a new chore with name "Read a chapter book", description "To complete this chore you have to read at least 7 pages" and points 10
+    Then I should be able to find the chore with name "Read a chapter book" on the application
 
   #Validations
   #1. Chore name is mandatory

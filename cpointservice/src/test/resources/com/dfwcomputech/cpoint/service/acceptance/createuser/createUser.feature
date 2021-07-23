@@ -1,4 +1,3 @@
-#Autor: mcumbay
 Feature: User Creation
   As a parent
   I want to register my kid
@@ -6,8 +5,8 @@ Feature: User Creation
 
   #Happy day Scenario
   Scenario: A new user can be created
-    When I create a new user with User Name "test02" and password "password"
-    Then I should be able to find the user with User Name "test02" on the application
+    When I create a new user with User Name "Preston" and password "1234"
+    Then I should be able to find the user with User Name "Preston" on the application
 
   #Validations:
   # 1.User Name is mandatory.

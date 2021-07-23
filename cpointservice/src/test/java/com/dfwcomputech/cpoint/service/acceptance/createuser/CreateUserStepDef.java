@@ -1,4 +1,4 @@
-package com.dfwcomputech.cpoint.service.acceptance.createchore;
+package com.dfwcomputech.cpoint.service.acceptance.createuser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
@@ -19,7 +19,7 @@ import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CreateUserStepDefinitions {
+public class CreateUserStepDef {
 	@Autowired
 	private UserRepository userRepository;
 	
