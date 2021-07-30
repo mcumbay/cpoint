@@ -14,7 +14,7 @@
 	<description>Chores Points Tracker - Common</description>
     <properties>        
         <commons-io.version>2.10.0</commons-io.version>
-    </properties>	
+    </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

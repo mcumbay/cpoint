@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.dfwcomputech.cpoint.common.CPointException;
 import com.dfwcomputech.cpoint.integration.model.User;
 import com.dfwcomputech.cpoint.service.IUserService;
+import com.dfwcomputech.cpoint.service.resource.dto.AssignChoreParam;
 import com.dfwcomputech.cpoint.service.resource.dto.UserDto;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,6 +44,17 @@ public class UserController {
 			return mapper.map(userEntity,UserDto.class);	
 		} catch (CPointException e) {
 			log.debug("Validation Error: {}",e.getMessage());			
+	        throw new ResponseStatusException(
+	                 HttpStatus.PRECONDITION_FAILED, e.getMessage(), e);
+		}
+		
+	}
+	
+	@PostMapping("/assign")
+	public void assign(@RequestBody AssignChoreParam param) {
+		try {
+			userService.assignChore(param.getUserName(),param.getChoreName());		
+		} catch (CPointException e) {
 	        throw new ResponseStatusException(
 	                 HttpStatus.PRECONDITION_FAILED, e.getMessage(), e);
 		}

@@ -1,7 +1,7 @@
 Feature: User Creation
-  As a parent
+  As a Parent User
   I want to register my kid
-  so that he can access the application
+  so that I can find him on the application
 
   #Happy day Scenario
   Scenario: A new user can be created

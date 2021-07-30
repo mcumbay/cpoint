@@ -13,7 +13,7 @@ Feature: Chore creation
   #2. Points is mandatory and have to be more than 0
   Scenario Outline: Cannot create new chore due Validations
     When I create a new chore with name "<choreName>", description "<description>" and points <points>
-    Then An error message "<error>" is shown to the user
+    Then An error message "<error>" is shown
 
     Examples: 
       | choreName | description             | points | error                           |

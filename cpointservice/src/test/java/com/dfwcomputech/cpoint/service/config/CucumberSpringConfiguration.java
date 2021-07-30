@@ -8,4 +8,6 @@ import io.cucumber.spring.CucumberContextConfiguration;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CucumberSpringConfiguration {
 	
+	//Use Cucumber Spring to share state between steps 
+	//in a scenario and access the spring application context.
 }

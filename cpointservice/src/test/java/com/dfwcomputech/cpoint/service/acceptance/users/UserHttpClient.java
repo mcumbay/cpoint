@@ -1,4 +1,4 @@
-package com.dfwcomputech.cpoint.service.acceptance.createuser;
+package com.dfwcomputech.cpoint.service.acceptance.users;
 
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 

@@ -8,4 +8,5 @@ public interface IUserService {
 	User findUser(String userName);
 	User updateUser(User user) throws CPointException;
 	void deleteUser(String userName);
+	void assignChore(String userName, String choreName) throws CPointException;
 }

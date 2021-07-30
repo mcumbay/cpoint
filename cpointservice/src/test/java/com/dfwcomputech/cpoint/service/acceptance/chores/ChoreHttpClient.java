@@ -1,4 +1,4 @@
-package com.dfwcomputech.cpoint.service.acceptance.createchore;
+package com.dfwcomputech.cpoint.service.acceptance.chores;
 
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 

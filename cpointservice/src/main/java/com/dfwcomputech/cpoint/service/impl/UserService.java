@@ -70,4 +70,10 @@ public class UserService implements IUserService{
 			userRepository.delete(userToDelete);
 	}
 
+	@Override
+	public void assignChore(String userName, String choreName) throws CPointException{
+		
+		
+	}
+
 }
