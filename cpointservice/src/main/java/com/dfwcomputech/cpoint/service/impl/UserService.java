@@ -1,5 +1,6 @@
 package com.dfwcomputech.cpoint.service.impl;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -11,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dfwcomputech.cpoint.common.CPointException;
+import com.dfwcomputech.cpoint.integration.model.Chore;
 import com.dfwcomputech.cpoint.integration.model.User;
+import com.dfwcomputech.cpoint.integration.model.UserChore;
+import com.dfwcomputech.cpoint.integration.repository.ChoreRepository;
+import com.dfwcomputech.cpoint.integration.repository.UserChoreRepository;
 import com.dfwcomputech.cpoint.integration.repository.UserRepository;
 import com.dfwcomputech.cpoint.service.IUserService;
 
@@ -20,9 +25,23 @@ public class UserService implements IUserService{
 		
 	private UserRepository userRepository;
 	
+	private ChoreRepository choreRepository;
+	
+	private UserChoreRepository userChoreRepository;
+	
 	@Autowired
-	public UserService(UserRepository userRepository) {
+	public void setChoreRepository(ChoreRepository choreRepository) {
+		this.choreRepository=choreRepository;
+	}
+	
+	@Autowired
+	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository=userRepository;
+	}
+	
+	@Autowired
+	public void setUserChoreRepository(UserChoreRepository userChoreRepository) {
+		this.userChoreRepository=userChoreRepository;
 	}
 	
 	@Override
@@ -71,9 +90,12 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public void assignChore(String userName, String choreName) throws CPointException{
+	public void assignChore(String userName, String choreName, LocalDate date) throws CPointException{
+		User user = userRepository.findFirstByUserName(userName);
+		Chore chore = choreRepository.findFirstByName(choreName);
 		
-		
+		UserChore userChore = new UserChore(user,chore,date);		
+		userChoreRepository.save(userChore);		
 	}
 
 }

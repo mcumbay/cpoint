@@ -53,7 +53,7 @@ public class UserController {
 	@PostMapping("/assign")
 	public void assign(@RequestBody AssignChoreParam param) {
 		try {
-			userService.assignChore(param.getUserName(),param.getChoreName());		
+			userService.assignChore(param.getUserName(),param.getChoreName(),param.getDate());		
 		} catch (CPointException e) {
 	        throw new ResponseStatusException(
 	                 HttpStatus.PRECONDITION_FAILED, e.getMessage(), e);

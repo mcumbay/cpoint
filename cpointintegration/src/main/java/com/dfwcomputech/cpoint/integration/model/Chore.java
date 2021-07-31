@@ -27,4 +27,12 @@ public class Chore {
 	private Integer points;
 	private LocalDateTime created;
 	private LocalDateTime updated;
+	
+	public Chore(String name,String description,Integer points) {
+		this.name=name;
+		this.description=description;
+		this.points=points;
+		this.created= LocalDateTime.now();
+	}
+	
 }

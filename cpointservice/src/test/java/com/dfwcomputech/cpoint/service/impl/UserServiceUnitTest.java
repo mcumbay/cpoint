@@ -23,7 +23,9 @@ class UserServiceUnitTest {
 		UserRepository userRepository = mock(UserRepository.class);
 		existingUser = new User("userTest01", "userPass");
 		when(userRepository.findFirstByUserName(existingUser.getUserName())).thenReturn(existingUser);
-		return new UserService(userRepository);
+		UserService service = new UserService();
+		service.setUserRepository(userRepository);
+		return service;
 	}
 
 	@ParameterizedTest(name = "Test {index} - User Name = {0} Password ={1}")

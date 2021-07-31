@@ -3,6 +3,9 @@ Feature: Chore creation
   I want to define a Chore
   so that I can find it in the application
 
+  Background: 
+    Given I have access the url "/chores"
+
   #Happy day Scenario
   Scenario: A new chore can be created
     When I create a new chore with name "Read a chapter book", description "To complete this chore you have to read at least 7 pages" and points 10

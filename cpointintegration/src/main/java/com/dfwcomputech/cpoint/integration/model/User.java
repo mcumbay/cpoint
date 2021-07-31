@@ -6,12 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
@@ -27,6 +26,7 @@ public class User {
 	@NotBlank(message="Password cannot be null")
 	private String password;
 	
+	@NotNull(message = "Type cannot be null")
 	private UserType type;
 	
 	private LocalDateTime created;

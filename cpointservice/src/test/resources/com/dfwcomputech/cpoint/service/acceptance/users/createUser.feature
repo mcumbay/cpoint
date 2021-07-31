@@ -3,6 +3,9 @@ Feature: User Creation
   I want to register my kid
   so that I can find him on the application
 
+  Background: 
+    Given I have access the url "/users"
+
   #Happy day Scenario
   Scenario: A new user can be created
     When I create a new user with User Name "Preston" and password "1234"

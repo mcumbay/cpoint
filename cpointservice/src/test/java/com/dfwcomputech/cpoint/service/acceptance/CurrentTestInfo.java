@@ -9,11 +9,17 @@ import lombok.Setter;
 
 @Component
 @ScenarioScope
-public class ResponseStatusInformation {
+public class CurrentTestInfo {
+	// Current url under test
+	@Getter@Setter
+	private String completeEndPoint;
 	
+	//Current http status
 	@Getter@Setter
 	private HttpStatus status;
+	
+	//Current error message
 	@Getter@Setter
 	private String error;
-
+		
 }
