@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.jupiter.params.converter.JavaTimeConversionPattern;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,8 +58,9 @@ public class UserStepDef {
     }
 	
 	@When("I assign the chore {string} to the User {string} for {string}")
-	public void i_assign_the_chore_to_the_user(String choreName, String userName,  
-	@JavaTimeConversionPattern("MM/dd/yyyy") LocalDate date) {
+	public void i_assign_the_chore_to_the_user(String choreName, String userName, String dateStr) {
+		LocalDate date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		
 	    AssignChoreParam param = new AssignChoreParam(userName,choreName,date);
 	    HttpStatus status=null;
 	    try {
@@ -78,9 +80,9 @@ public class UserStepDef {
     }
 	
 	@Then("I should be able to find the chore {string} on {string} list of chores for {string}")
-	public void i_should_be_able_to_find_the_chore_on_list_of_chores(String choreName, String userName,
-			@JavaTimeConversionPattern("MM/dd/yyyy") LocalDate date) {
-		assertThat(testInfo.getStatus()).isEqualTo(HttpStatus.CREATED);
+	public void i_should_be_able_to_find_the_chore_on_list_of_chores(String choreName, String userName, String dateStr) {
+		LocalDate date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		assertThat(testInfo.getStatus()).isEqualTo(HttpStatus.OK);
 		assertNotNull(userChoreRepository.findFirstByUserUserNameAndChoreNameAndDate(userName,choreName,date));
 	}
 	
