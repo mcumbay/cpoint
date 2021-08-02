@@ -7,7 +7,7 @@ Feature: User Creation
     Given I have access the url "/users"
 
   #Happy day Scenario
-  Scenario: A new user can be created
+  Scenario: A new Kid User can be created
     When I create a new user with User Name "Preston" and password "1234"
     Then I should be able to find the user with User Name "Preston" on the application
 

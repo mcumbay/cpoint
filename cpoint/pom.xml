@@ -111,5 +111,6 @@
 		<module>../cpointcommon</module>
 		<module>../cpointintegration</module>
 		<module>../cpointservice</module>
+		<module>../cpointui</module>
 	</modules>
 </project>

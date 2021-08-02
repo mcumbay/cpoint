@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import org.junit.jupiter.params.converter.JavaTimeConversionPattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
