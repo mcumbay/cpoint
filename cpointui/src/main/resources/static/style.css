@@ -1,0 +1,26 @@
+@font-face {
+  font-family: robloxFont;
+  src: url(Roblox_Font_FONTS_MAGAZINE.ttf);
+}
+
+.roblox-font {
+  font-family: robloxFont;
+}
+
+.mainTitle{
+	font-family: robloxFont;
+	color: crimson;
+}
+
+.my_form{
+	padding: 15px;
+	box-shadow:2px 2px 8px rgba(0,0,0,0.3);
+	background-color: aliceblue;
+}
+
+.register_bg{
+ background-image: url('images/chore_roblox.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: 100vh;
+}
