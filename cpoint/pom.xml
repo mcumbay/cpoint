@@ -19,6 +19,11 @@
 		<java.version>16</java.version>
 		<cucumber.version>6.10.4</cucumber.version>
 		<modelmapper.version>2.4.4</modelmapper.version>
+        <serenity.version>2.4.51</serenity.version>
+        <serenity.maven.version>2.4.51</serenity.maven.version>
+        <serenity.cucumber.version>2.4.51</serenity.cucumber.version>
+        <tags></tags>
+        <webdriver.base.url></webdriver.base.url>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -103,6 +108,27 @@
 						</execution>
 					</executions>
 				</plugin>
+	            <plugin>
+	                <groupId>net.serenity-bdd.maven.plugins</groupId>
+	                <artifactId>serenity-maven-plugin</artifactId>
+	                <version>${serenity.version}</version>
+	                <executions>
+	                    <execution>
+	                        <id>serenity-reports</id>
+	                        <phase>post-integration-test</phase>
+	                        <goals>
+	                            <goal>aggregate</goal>
+	                        </goals>
+	                    </execution>
+	                </executions>
+	                <dependencies>
+	                    <dependency>
+	                        <groupId>net.serenity-bdd</groupId>
+	                        <artifactId>serenity-core</artifactId>
+	                        <version>${serenity.version}</version>
+	                    </dependency>
+	                </dependencies>
+	            </plugin>				
 			</plugins>
 		</pluginManagement>
 	</build>

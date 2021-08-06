@@ -1,4 +1,4 @@
-package com.dfwcomputech.cpoint.ui.aceptance.users;
+package com.dfwcomputech.cpoint.ui.acceptance.parent;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -1,14 +1,15 @@
-Feature: Registration
+Feature: New User Registration
   As a new user
-  I want to be able to register into the application
-  so that I can have access to the application
+  I want to be able to register a new account
+  so that I can manage my kids chores
 
   Background: 
     Given I went to "registration" page
 
   Scenario: Sucessful Registration
-    When I enter user "mcumbay" and password "1234"
-    Then A sucessful message "Parent User created" is shown
+    When I enter user name "mcumbay" and password "1234"
+    And submit the page
+    Then A sucessful message "User mcumbay has been created created" is shown
 
   Scenario Outline: Registration Validations Errors
     Given A Parent user with userName "mcumbay" already exists
