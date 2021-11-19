@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
+		<version>2.5.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dfwcomputech.cpoint</groupId>
@@ -16,7 +16,7 @@
 	<name>cpoint</name>
 	<description>Chores Points Tracker</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 		<cucumber.version>6.10.4</cucumber.version>
 		<modelmapper.version>2.4.4</modelmapper.version>
         <serenity.version>2.4.51</serenity.version>
@@ -68,7 +68,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- Unit Test -->
+				<!-- Unit Test 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -84,8 +84,8 @@
 						</includes>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
-				</plugin>
-				<!-- Integration Tests -->
+				</plugin> -->
+				<!-- Integration Tests 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
@@ -97,7 +97,6 @@
 								<goal>verify</goal>
 							</goals>
 							<configuration>
-								<!-- -->
 								<excludes>
 									<exclude>**/*ComponentTest</exclude>
 									<exclude>**/*IntegrationTest</exclude>
@@ -107,7 +106,7 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>
+				</plugin> -->
 	            <plugin>
 	                <groupId>net.serenity-bdd.maven.plugins</groupId>
 	                <artifactId>serenity-maven-plugin</artifactId>
@@ -132,7 +131,85 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
+	
+    <profiles>
+        <profile>
+            <id>all</id>
+            <build>
+                <plugins>
+                    <plugin>
+                    	<groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>                        
+                         <configuration>                         
+                            <!--  <excludes>
+                                <exclude>DataTest.java</exclude>
+                            </excludes> -->
+                            <includes>
+								<include>**/*ComponentTest</include>
+								<include>**/*IntegrationTest</include>
+								<include>**/*AcceptanceTest</include>
+								<include>**/*ApplicationTests</include>
+                            </includes>
+                            
+                            <testFailureIgnore>true</testFailureIgnore>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>failsafe</id>
+            <build>
+                <plugins>
+                    <plugin>
+                    	<groupId>org.apache.maven.plugins</groupId>	
+                        <artifactId>maven-failsafe-plugin</artifactId>                        
+                        <configuration>
+                            <includes>
+                                <include>**/*RestIT</include>
+                                <include>**/RestITCase</include>
+                            </includes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>surefire</id>
+            <build>
+                <plugins>
+                    <plugin>
+                    	<groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>                        
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <configuration>
+                                    <excludes>
+                                        <exclude>none</exclude>
+                                    </excludes>
+                                    <includes>
+                                        <include>**/*IntegrationTest</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 	<modules>
 		<module>../cpointcommon</module>
 		<module>../cpointintegration</module>
