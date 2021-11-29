@@ -24,9 +24,7 @@ class Java14Tests {
 		// Arrange
 		String input = null;
 		// Act && Assert
-		assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> input.toUpperCase(Locale.US))
-				.withMessageContaining(
-						"Cannot invoke \"String.toUpperCase(java.util.Locale)\" because \"<parameter1>\" is null");
+		assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> input.toUpperCase(Locale.US));
 
 	}
 	
